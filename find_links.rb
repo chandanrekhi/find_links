@@ -28,8 +28,14 @@ end
 
 
 if __FILE__ == $0
+begin
   implement unless ARGV.size >= 1
   tag_to_search = hashtag(ARGV[0])
   tweet_urls = tweets_search(tag_to_search)
   puts links(tweet_urls)
+rescue
+	puts "*** Please enter a valid hashtag option ***\n"
+	implement
+	exit
+end
 end
