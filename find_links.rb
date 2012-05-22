@@ -12,7 +12,7 @@ end
 
 # Search the tweets with the particular hashtag
 def tweets_search(tag_to_search)
-  Twitter.search(tag_to_search, :rpp => 100)
+  Twitter.search(tag_to_search, :rpp => 100, result_type: 'recent')
 end
 
 # Return a sorted list of unique links found in the list of tweets.
