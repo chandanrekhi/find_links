@@ -18,7 +18,7 @@ class Findlinks
 
 # Return a sorted list of unique links found in the list of tweets.
   def links(tweet_urls)
-    tweet_urls.map(&:text).grep( %r{http://}i ).to_s.scan( %r{http://[\w/.%-]+}i ). uniq
+    tweet_urls.map{|tweet_url| URI.extract(tweet_url.text, 'http' )}.uniq
   end
    
 # Displays message with correct format for appropriate usage of the application and does not let the application throw an exception.
