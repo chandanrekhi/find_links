@@ -8,7 +8,11 @@ class Findlinks
 # Please check that the hash symbol is prefixed to a hashtag.
 
   def hashtag(tag_to_search)
-    (tag_to_search.scan(/^#/).empty?) ? "##{tag_to_search}" : tag_to_search
+    if tag_to_search.start_with?('#') 
+      tag_to_search 
+    else 
+      "##{tag_to_search}" 
+    end
   end
 
 # Search the tweets with the particular hashtag
@@ -28,7 +32,7 @@ class Findlinks
   end
 
 result = Findlinks.new
-if __FILE__ == $0
+
 begin
   implement unless ARGV.size >= 1
   tag_to_search = result.hashtag(ARGV[0])
