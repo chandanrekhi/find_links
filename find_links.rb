@@ -31,16 +31,15 @@ class Findlinks
     exit
   end
 
-result = Findlinks.new
+  result = Findlinks.new
 
-begin
-  implement unless ARGV.size >= 1
-  tag_to_search = result.hashtag(ARGV[0])
-  tweet_urls = result.tweets_search(tag_to_search)
-  puts result.links(tweet_urls)
-rescue
-	puts "*** Please enter a valid hashtag option ***\n"
-	exit
-end
-end
+  begin
+    implement unless ARGV.size >= 1
+    tag_to_search = result.hashtag(ARGV[0])
+    tweet_urls = result.tweets_search(tag_to_search)
+    puts result.links(tweet_urls)
+  rescue
+	  puts "*** Please enter a valid hashtag option ***\n"
+	  exit
+  end
 end
